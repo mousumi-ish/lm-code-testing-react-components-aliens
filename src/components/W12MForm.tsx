@@ -1,9 +1,10 @@
 import { useState } from "react";
 import W12MHeader from "./W12MHeader";
 import SpeciesName from "./Species_Name";
-import PlanetName from "./planet_name";
-const [speciesName, setSpeciesName] = useState("humans");
+import PlanetName from "./Planet_Name";
 const W12MForm = () => {
+  const [speciesName, setSpeciesName] = useState<string>("humans");
+  const [planetName, setPlanetName] = useState<string>("Earth");
   return (
     <section className="w12MForm">
       <W12MHeader />
@@ -11,16 +12,15 @@ const W12MForm = () => {
 
       <form>
         <SpeciesName
-          speciesName={SpeciesName}
-          onChangeSpeciesName={(e: any) => setSpeciesName(e.target.value)}
+          speciesName={speciesName}
+          onChangeSpeciesName={(e) => setSpeciesName(e.target.value)}
         />
-
-        <div className="container">
-          <button type="button" className="btn" id="btn" onClick={handleSubmit}>
-            Submit
-          </button>
-        </div>
       </form>
+
+      <PlanetName
+        planetName={planetName}
+        onChangePlanetName={(e) => setPlanetName(e.target.value)}
+      />
     </section>
   );
 };

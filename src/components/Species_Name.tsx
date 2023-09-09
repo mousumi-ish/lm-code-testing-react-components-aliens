@@ -2,21 +2,19 @@ interface SpeciesNameProps {
   speciesName: string;
   onChangeSpeciesName: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
-const SpeciesName: React.FC<{
-  speciesName: string;
-  onChangeSpeciesName: any;
-}> = ({ speciesName, onChangeSpeciesName }) => (
+const SpeciesName: React.FC<SpeciesNameProps> = ({
+  speciesName,
+  onChangeSpeciesName,
+}) => (
   <>
-    <div className="container">
-      <label htmlFor="speciesName">Species Name : </label>
-      <input
-        type="text"
-        id="speciesName"
-        className="speciesName"
-        value={speciesName}
-        onChange={onChangeSpeciesName}
-      />
-    </div>
+    <label htmlFor="speciesName">Species Name</label>
+    <input
+      type="text"
+      id="speciesName"
+      // className="speciesName"
+      value={speciesName}
+      onChange={(e) => onChangeSpeciesName(e)}
+    />
   </>
 );
 
