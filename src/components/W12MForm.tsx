@@ -53,7 +53,14 @@ const W12MForm = () => {
             }
           />
         </div>
-        <input type="submit" value="Submit" />
+        <div className="container">
+          <input
+            type="submit"
+            className="submit"
+            id="submit"
+            placeholder="Submit"
+          />
+        </div>
       </form>
     </section>
   );
