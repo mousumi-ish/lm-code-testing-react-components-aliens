@@ -1,4 +1,4 @@
-interface SpeciesNameProps {
+export interface SpeciesNameProps {
   speciesName: string;
   onChangeSpeciesName: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
@@ -11,9 +11,8 @@ const SpeciesName: React.FC<SpeciesNameProps> = ({
     <input
       type="text"
       id="speciesName"
-      // className="speciesName"
       value={speciesName}
-      onChange={(e) => onChangeSpeciesName(e)}
+      onChange={onChangeSpeciesName}
     />
   </>
 );

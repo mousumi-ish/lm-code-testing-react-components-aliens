@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export interface ReasonForSparingProps {
   reasonForSparing: string;
   onChangeReasonForSparing: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;

@@ -1,25 +1,16 @@
-import { ChangeEvent } from "react";
-import SpeciesName from "./Species_Name";
 import { render, screen } from "@testing-library/react";
-describe("Species Name", () => {
-  test("renders header text", () => {
-    const propSpecies = {
-      label: "Species Name : ",
-      id: "speciesName",
-      placeholder: "Species Name..",
-      name: "speciesName",
-      onChangeName: jest.fn(),
+import SpeciesName, { SpeciesNameProps } from "./Species_Name";
+import user from "@testing-library/user-event";
+
+describe("Testing for the SpeciesName component", () => {
+  test("Given the required props, When the component is rendered, Then the label and input should be present", () => {
+    const props: SpeciesNameProps = {
+      speciesName: "speciesName",
+      onChangeSpeciesName: jest.fn(),
     };
-    render(
-      <SpeciesName
-        speciesName={""}
-        onChangeSpeciesName={function (e: ChangeEvent<HTMLInputElement>): void {
-          throw new Error("Function not implemented.");
-        }}
-        {...propSpecies}
-      />
-    );
-    const labelText = screen.getByText(/Species Name/i);
-    expect(labelText).toBeInTheDocument();
+
+    render(<SpeciesName {...props} />);
+    const speciesNamelabel = screen.getByText(/Species Name:/i);
+    expect(speciesNamelabel).toBeInTheDocument();
   });
 });
